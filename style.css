@@ -1,0 +1,32 @@
+svg {
+  height: 10vh;
+  max-height: 150px;
+  width: auto;
+  min-height: 100px;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 3px solid rgb(255, 249, 249);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px black;
+  margin: 2vh 10px;
+}
+body {
+  text-align: center;
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  font-size: 3vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.2;
+}
+header {
+  justify-self: top;
+  align-self: top;
+}
+#score {
+  font-size: 4vh;
+}

@@ -1,4 +1,5 @@
 function computerPlay() {
+  // alegerea calculatorului
   let computerChoice = Math.floor(Math.random() * 3);
   switch (computerChoice) {
     case 0:
@@ -15,6 +16,7 @@ function computerPlay() {
 }
 
 function rpsRound(playerSelection, computerSelection) {
+  // o singura comparare dintre selectia calculatorului si a utilizatorului
   if (playerSelection === computerSelection) {
     return "Tie!";
   }
@@ -32,13 +34,14 @@ function rpsRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
+function game(NoOfRounds) {
+  // se apeleaza cu un numar cara da lungimea jocului in runde
   let playerScore = 0;
   let computerScore = 0;
-  for (let rounds = 5; rounds >= 1; rounds--) {
+  for (let currentRound = NoOfRounds; currentRound >= 1; currentRound--) {
     let playerPlay = prompt("rock, paper or scissors?").toLowerCase();
     let computer = rpsRound(playerPlay, computerPlay());
-    console.log(`${rounds} rounds to go!`);
+    console.log(`${currentRound} rounds to go!`);
     switch (computer) {
       case "Tie!":
         console.log("Tie!");
@@ -54,5 +57,6 @@ function game() {
     }
     console.log(`${playerScore}-${computerScore}`);
   }
+  console.log("Gata Meciul!");
 }
-game();
+//let numberOfRounds = prompt("Cate runde vrei sa joci?");
