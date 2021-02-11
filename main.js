@@ -1,62 +1,52 @@
-function computerPlay() {
-  // alegerea calculatorului
-  let computerChoice = Math.floor(Math.random() * 3);
-  switch (computerChoice) {
-    case 0:
-      computerChoice = "rock";
-      break;
-    case 1:
-      computerChoice = "paper";
-      break;
-    case 2:
-      computerChoice = "scissors";
-      break;
-  }
-  return computerChoice;
+const variante = ["rock", "paper", "scissors"];
+const buton = document.querySelectorAll("button");
+const afisareJucator = document.querySelector("#scor-utilizator");
+const afisareCalculator = document.querySelector("#scor-calculator");
+
+let playerScore = 0;
+let computerScore = 0;
+let rezultat = document.querySelector("#rezultat-runda");
+
+for (let index = 0; index < buton.length; index++) {
+  buton[index].addEventListener("click", (i) => {
+    rpsRound(getPlayerInput(index), getComputerInput());
+  });
 }
 
+//inceput functii joc
+function getPlayerInput(apasatIndex) {
+  return variante[apasatIndex]; // se returneaza valoarea aleasa de jucator
+}
+function getComputerInput() {
+  // alegerea calculatorului
+  let computerIndex = Math.floor(Math.random() * 3);
+  let computerChoice = variante[computerIndex];
+  return computerChoice;
+}
 function rpsRound(playerSelection, computerSelection) {
-  // o singura comparare dintre selectia calculatorului si a utilizatorului
-  if (playerSelection === computerSelection) {
-    return "Tie!";
-  }
+  //  comparare dintre selectia calculatorului si a utilizatorului
   if (
+    playerSelection === computerSelection &&
+    typeof playerSelection == "string"
+  ) {
+    rezultat.textContent = "Remiza!";
+  } else if (
     (playerSelection === "scissors" && computerSelection === "paper") ||
     (playerSelection === "rock" && computerSelection === "scissors")
   ) {
-    return 3;
+    playerScore += 1;
+    afisareJucator.textContent = playerScore;
+    rezultat.textContent = "Tu ai castigat runda!";
+  } else {
+    computerScore += 1;
+    afisareCalculator.textContent = computerScore;
+    rezultat.textContent = "Calculatorul a castigat runda!";
   }
-  if (
-    (computerSelection === "scissors" && playerSelection === "paper") ||
-    (computerSelection === "rock" && playerSelection === "scissors")
-  ) {
-    return 4;
+  if (playerScore === 5 || computerScore === 5) {
+    playerScore = 0;
+    computerScore = 0;
+    afisareJucator.textContent = playerScore;
+    afisareCalculator.textContent = computerScore;
   }
 }
-
-function game(NoOfRounds) {
-  // se apeleaza cu un numar cara da lungimea jocului in runde
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let currentRound = NoOfRounds; currentRound >= 1; currentRound--) {
-    let playerPlay = prompt("rock, paper or scissors?").toLowerCase();
-    let computer = rpsRound(playerPlay, computerPlay());
-    console.log(`${currentRound} rounds to go!`);
-    switch (computer) {
-      case "Tie!":
-        console.log("Tie!");
-        break;
-      case 3:
-        playerScore += 1;
-        console.log("You Win!");
-        break;
-      case 4:
-        computerScore += 1;
-        console.log("You Lose :(");
-        break;
-    }
-    console.log(`${playerScore}-${computerScore}`);
-  }
-  console.log("Gata Meciul!");
-}
-//let numberOfRounds = prompt("Cate runde vrei sa joci?");
+// final functii joc

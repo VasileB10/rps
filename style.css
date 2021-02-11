@@ -30,3 +30,24 @@ header {
 #score {
   font-size: 4vh;
 }
+#rezultat-runda {
+  height: 30px;
+  margin-top: 20px;
+}
+button:hover {
+  animation-name: culoareUmbra;
+  animation-duration: 0.34s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  transition: ease-in;
+}
+@keyframes culoareUmbra {
+  50% {
+    box-shadow: 0px 0px 15px 1px rgb(179, 0, 0);
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    box-shadow: 0px 0px 15px 1px rgb(40, 40, 255);
+    transform: rotateZ(5deg);
+  }
+}
