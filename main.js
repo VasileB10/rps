@@ -47,14 +47,13 @@ function rpsRound(playerSelection, computerSelection) {
     rezultat.textContent = "Calculatorul a castigat runda!";
   }
   if (playerScore === 5 || computerScore === 5) {
+    rezultat.textContent = " ";
     if (playerScore > computerScore) {
       aratareCastigatorJucator();
       setTimeout(aratareCastigatorJucator, 1000);
-      rezultat.textContent = '';
     } else {
       aratareCastigatorCalculator();
       setTimeout(aratareCastigatorCalculator, 1000);
-      rezultat.textContent = '';
     }
     playerScore = 0;
     computerScore = 0;
