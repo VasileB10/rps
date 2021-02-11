@@ -50,9 +50,11 @@ function rpsRound(playerSelection, computerSelection) {
     if (playerScore > computerScore) {
       aratareCastigatorJucator();
       setTimeout(aratareCastigatorJucator, 1000);
+      rezultat.textContent = '';
     } else {
       aratareCastigatorCalculator();
-      setTimeout(aratareCastigatorCalculator, 1500);
+      setTimeout(aratareCastigatorCalculator, 1000);
+      rezultat.textContent = '';
     }
     playerScore = 0;
     computerScore = 0;
