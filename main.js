@@ -3,6 +3,10 @@ const buton = document.querySelectorAll("button");
 const afisareJucator = document.querySelector("#scor-utilizator");
 const afisareCalculator = document.querySelector("#scor-calculator");
 
+const playerModal = document.querySelector("#jucator-castiga");
+const computerModal = document.querySelector("#calculator-castiga");
+const overlay = document.querySelector(".overlay");
+
 let playerScore = 0;
 let computerScore = 0;
 let rezultat = document.querySelector("#rezultat-runda");
@@ -43,6 +47,13 @@ function rpsRound(playerSelection, computerSelection) {
     rezultat.textContent = "Calculatorul a castigat runda!";
   }
   if (playerScore === 5 || computerScore === 5) {
+    if (playerScore > computerScore) {
+      aratareCastigatorJucator();
+      setTimeout(aratareCastigatorJucator, 1000);
+    } else {
+      aratareCastigatorCalculator();
+      setTimeout(aratareCastigatorCalculator, 1500);
+    }
     playerScore = 0;
     computerScore = 0;
     afisareJucator.textContent = playerScore;
@@ -50,3 +61,12 @@ function rpsRound(playerSelection, computerSelection) {
   }
 }
 // final functii joc
+
+function aratareCastigatorJucator() {
+  playerModal.classList.toggle("ascuns");
+  overlay.classList.toggle("ascuns");
+}
+function aratareCastigatorCalculator() {
+  computerModal.classList.toggle("ascuns");
+  overlay.classList.toggle("ascuns");
+}

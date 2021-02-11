@@ -51,3 +51,30 @@ button:hover {
     transform: rotateZ(5deg);
   }
 }
+.ascuns {
+  display: none;
+}
+.modal {
+  z-index: 999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 5vh;
+  transform: translate(-50%, -50%);
+  background-color: rgb(226, 226, 226);
+  padding: 7vh;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgb(168, 166, 166);
+}
+.overlay {
+  position: fixed;
+  z-index: 998;
+  width: 1000vw;
+  height: 1000vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: scale(1.8);
+  background-color: rgba(0, 0, 0, 0.651);
+  filter: blur(10px);
+}
